@@ -6,8 +6,9 @@ import {
 import {
   LayoutDashboard, Bot, Wallet, FlaskConical, ScanSearch, BookOpen,
   ShieldAlert, Settings as SettingsIcon, Mic, MicOff, Send, Power,
-  TrendingUp, TrendingDown, AlertTriangle, X, Plus
+  TrendingUp, TrendingDown, AlertTriangle, X, Plus, Layers
 } from "lucide-react";
+import TechnicalAnalysis from "./TechnicalAnalysis.jsx";
 
 /* ---------------------------------------------------------
    Design tokens
@@ -252,6 +253,7 @@ export default function TradingApp() {
     { id: "dashboard", label: "Dashboard", icon: LayoutDashboard },
     { id: "trade", label: "Paper Trading", icon: Wallet },
     { id: "assistant", label: "AI Assistant", icon: Bot },
+    { id: "technical", label: "Technical AI", icon: Layers },
     { id: "strategy", label: "Strategy Builder", icon: FlaskConical },
     { id: "scanner", label: "Breakout Scanner", icon: ScanSearch },
     { id: "journal", label: "Journal", icon: BookOpen },
@@ -333,6 +335,7 @@ export default function TradingApp() {
         {tab === "assistant" && (
           <AIAssistant account={account} positions={positions} closedTrades={closedTrades} cryptoPrices={cryptoPrices} />
         )}
+        {tab === "technical" && <TechnicalAnalysis tdKey={tdKey} />}
         {tab === "strategy" && <StrategyBuilder tdKey={tdKey} />}
         {tab === "scanner" && <BreakoutScanner tdKey={tdKey} />}
         {tab === "journal" && <Journal closedTrades={closedTrades} account={account} />}
